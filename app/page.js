@@ -1,95 +1,33 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+// Potential & necessary dependencies: react-bootstrap, redux, axios, yup, react-hook-form, react-sparklines
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main>
     </main>
   )
 }
+
+// Components: SearchBar,
+
+// Planning: Going to have to brainstorm components and reducers, try to set up a good flow, write readable code, leave comments at every step so I know whats going on since I'll be spending time in and out of this project. Avoid paralysis, work on one thing at a time and get it done, connect the pieces and once functional, tidy up and do good clean code.
+
+
+// Daily Tasks:
+// 1. Search Bar, styling, and component
+// 2. Get SearchBar to work with api, utilize axios if necessary, don't think I have to for this one, but probably utilize axios for data coming from api and going into reducers/slices, still have to wrap my head around that a bit.
+
+
+// Parsity requirments and extensions:
+
+// You must be able to enter a city, click search and see 3 charts show up.
+// There will be a chart for "temperature" (in F), Pressure and Humidity.
+// Each of the charts will be populated with data from the 5 day forecast as well as a reference line which will show the average (of that particular data point).
+
+
+// So here are the extensions:
+
+// After a user has searched a city (and that city's weather information is currently displaying), the user should see a "Set as Default" button. When the user clicks this button, there should be some indication that the current city is set as their default city. If the user refreshes the page, instead of a blank screen and search bar, their default city's info should come up.
+// Use TypeScript! Use sparingly... or go all in!
+// Add a button to the interface that will allow the user to automatically look up their current location using the Geolocation API.
+// Place a map on the page with the current location shown using the Google Maps Embed API.
+// Add in nearby cities to the map with the current temperature and weather shown on the map "pin" and let them click a "pin" to switch to that city's weather.
