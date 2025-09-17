@@ -1,28 +1,58 @@
 // Potential & necessary dependencies: react-bootstrap, redux, axios, yup, react-hook-form, react-sparklines
+'use client';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { SearchBar } from './components/SeachBar';
+
+const API_KEY = process.env.OPEN_WEATHER_API_KEY;
 
 export default function Home() {
   return (
     <main>
+      <Container fluid>
+        <Row>
+          <Col>
+            <SearchBar />
+          </Col>
+        </Row>
+      </Container>
+      <Container fluid>
+        <Row>
+          <Col>
+            <h5>City</h5>
+          </Col>
+          <Col>
+            <h5>Temperature (F)</h5>
+          </Col>
+          <Col>
+            <h5>Pressure (hPa)</h5>
+          </Col>
+          <Col>
+            <h5>Humidity (%)</h5>
+          </Col>
+        </Row>
+      </Container>
     </main>
-  )
+  );
 }
 
 // Components: SearchBar,
 
 // Planning: Going to have to brainstorm components and reducers, try to set up a good flow, write readable code, leave comments at every step so I know whats going on since I'll be spending time in and out of this project. Avoid paralysis, work on one thing at a time and get it done, connect the pieces and once functional, tidy up and do good clean code.
 
-
 // Daily Tasks:
 // 1. Search Bar, styling, and component
 // 2. Get SearchBar to work with api, utilize axios if necessary, don't think I have to for this one, but probably utilize axios for data coming from api and going into reducers/slices, still have to wrap my head around that a bit.
-
 
 // Parsity requirments and extensions:
 
 // You must be able to enter a city, click search and see 3 charts show up.
 // There will be a chart for "temperature" (in F), Pressure and Humidity.
 // Each of the charts will be populated with data from the 5 day forecast as well as a reference line which will show the average (of that particular data point).
-
 
 // So here are the extensions:
 
