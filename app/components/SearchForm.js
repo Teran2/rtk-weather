@@ -1,24 +1,48 @@
 "use client";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
 
-const schema = yup.object({
-  city: yup
-    .string()
-    .trim()
-    .required("Enter a city name"),
-}).required();
+export default function SearchForm({ onSearch }) {
+  const [city, setCity] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-export default function SearchForm({ onSubmit }) {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    setError,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    if (!city.trim()) {
+      setError("Enter a city name.")
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await onSearch(city);
+      setCity("");
+    } catch (err) {
+      setError(error.message || "Search failed.")
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <InputGroup className="mb-2">
+      <Form.Control
+      type="text"
+      placeholder="Enter a city"
+      value={city}
+      onChange={(e) => setCity(e.target.value)}
+      />
+      <Button variant="primary" type="submit" disabled={loading}>
+        {loading ? "Searching..." : "Search"}
+      </Button>
+      <Form.Control.Feedback type="invalid">
+      {error}
+      </Form.Control.Feedback>
+      </InputGroup>
+    </Form>
+  );
 }
