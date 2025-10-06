@@ -20,5 +20,10 @@
     "react-hook-form": "^7.63.0",
     "react-sparklines": "^1.7.0",
     "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2"
   }
 }

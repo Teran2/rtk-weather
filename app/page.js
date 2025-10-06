@@ -1,11 +1,23 @@
 "use client";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import SearchForm from "./components/SearchForm";
+import WeatherChart from "./components/WeatherChart";
 
 export default function Home() {
   return (
-    <Container className="p-3">
-      <h1 className="text-center mb-4">Weather App</h1>
-      <p className="text-center">Setup Complete</p>
+    <Container>
+      <SearchForm />
+      <hr />
+      <Container>
+        <Row>
+          <Col>City</Col>
+          <Col>Temperature (F)</Col>
+          <Col>Pressure (hPa)</Col>
+          <Col>Humidity (%)</Col>
+        </Row>
+      </Container>
+      <hr />
+      <WeatherChart />
     </Container>
-  )
+  );
 }
